@@ -3,6 +3,9 @@ LightBlue
 
 Version 1.1.15
 --------------------
+### Features
+* Support for Azure Queue Storage
+
 ###Implementation
 * Update to NewtonSoft.Json 6.0.8
 
