@@ -11,6 +11,7 @@ namespace LightBlue.Tests.Standalone
     {
         Account = 0,
         Container = 1,
+        Queue = 2
     }
 
     public abstract class StandaloneAzureTestsBase
