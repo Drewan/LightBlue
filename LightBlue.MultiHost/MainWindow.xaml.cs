@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
+using LightBlue.MultiHost.Configuration;
 using LightBlue.MultiHost.ViewModel;
 
 namespace LightBlue.MultiHost
@@ -192,8 +193,8 @@ namespace LightBlue.MultiHost
             if (VerifiySingleSelection())
             {
                 var role = listView.SelectedItems.Cast<Role>().Single();
-                var view = new ServiceConfigurationView(role);
-                view.Show();
+                var service = new RoleConfigurationService();
+                var wasUpdated = service.Edit(role.Title, App.MultiHostConfigurationFilePath);
             }
         }
 

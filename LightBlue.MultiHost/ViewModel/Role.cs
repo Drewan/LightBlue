@@ -264,11 +264,5 @@ namespace LightBlue.MultiHost.ViewModel
                 TraceBox.Dispatcher.Invoke(a);
             }
         }
-
-        public void UpdateServiceConfiguration()
-        {
-            var service = new ServiceConfiguationService();
-            service.Edit(null, null);
-        }
     }
 }
