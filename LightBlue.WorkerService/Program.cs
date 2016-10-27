@@ -1,6 +1,4 @@
-﻿using Formo;
-using LightBlue.Host;
-using Topshelf;
+﻿using Topshelf;
 
 namespace LightBlue.WorkerService
 {
@@ -10,30 +8,19 @@ namespace LightBlue.WorkerService
         {
             return (int)HostFactory.Run(x =>
             {
-                dynamic configuration = new Configuration();
-                WorkerHostSettings settings = configuration.Bind<WorkerHostSettings>();
+                var settings = new WorkerHostSettings();
 
-                x.Service<WorkerHostService>(service =>
-                {
-                    service.ConstructUsing(s =>
-                    {
-                        var hostArgs = HostArgs.ParseArgs(new[]
-                        {
-                            "-a:" + settings.Assembly,
-                            "-n:" + settings.RoleName,
-                            "-t:" + settings.ServiceTitle,
-                            "-c:" + settings.Configuration
-                        });
-                        return new WorkerHostService(hostArgs);
-                    });
+                x.Service(hs => new WorkerHostService(settings.ToHostArgs()));
 
-                    service.WhenStarted((s, h) => s.Start(h));
-                    service.WhenStopped((s, h) => s.Stop(h));
-                });
+                x.AddCommandLineDefinition("a", a => { settings.Assembly = a; });
+                x.AddCommandLineDefinition("n", n => { settings.RoleName = n; });
+                x.AddCommandLineDefinition("t", t => { settings.ServiceTitle = t; });
+                x.AddCommandLineDefinition("c", c => { settings.Configuration = c; });
+                x.ApplyCommandLine();
 
                 x.RunAsLocalSystem();
-                x.SetDescription(string.Format("LightBlue {0} WorkerRole Windows Service", settings.ServiceTitle));
-                x.SetDisplayName(settings.ServiceTitle + " Service");
+                x.SetDescription(settings.ServiceTitle);
+                x.SetDisplayName(settings.ServiceTitle);
                 x.SetServiceName(settings.ServiceTitle);
                 x.StartManually();
             });

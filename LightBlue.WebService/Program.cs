@@ -33,9 +33,9 @@ namespace LightBlue.WebService
                    service.WhenStopped((s, h) => s.Stop(h));
                });
 
-               x.RunAsLocalSystem();
-               x.SetDescription(string.Format("LightBlue {0} WebRole Windows Service", settings.ServiceTitle));
-               x.SetDisplayName(settings.ServiceTitle + " Service");
+               x.RunAs("CASHCONVERTERS\\drewan.obrien", "exGfbm7c");
+               x.SetDescription(settings.ServiceTitle);
+               x.SetDisplayName(settings.ServiceTitle);
                x.SetServiceName(settings.ServiceTitle);
                x.StartManually();
            });

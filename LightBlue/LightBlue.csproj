@@ -123,6 +123,11 @@
     <Compile Include="LightBlueContext.cs" />
     <Compile Include="LightBlueThreadControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Setup\Contexts\AzureContext.cs" />
     <Compile Include="Setup\Contexts\AzureContextBase.cs" />
     <Compile Include="Setup\Contexts\LightBlueLogicalCallContext.cs" />
@@ -157,7 +162,12 @@
     <Compile Include="Standalone\UriExtensions.cs" />
     <Compile Include="Standalone\FileLockExtensions.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config">

@@ -281,5 +281,16 @@ namespace LightBlue.WebHost
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
         }
+
+        public IDictionary<string, string> ToEnvironmentVariables()
+        {
+            var variables = new Dictionary<string, string>();
+            variables.Add("LightBlueHost", "true");
+            variables.Add("LightBlueConfigurationPath", ConfigurationPath);
+            variables.Add("LightBlueServiceDefinitionPath", ServiceDefinitionPath);
+            variables.Add("LightBlueRoleName", RoleName);
+            variables.Add("LightBlueUseHostedStorage", UseHostedStorage.ToString());
+            return variables;
+        }
     }
 }

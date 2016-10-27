@@ -25,6 +25,7 @@ namespace LightBlue.MultiHost
 
         public static string MultiHostConfigurationFilePath { get; private set; }
 
+        [LoaderOptimization(LoaderOptimization.MultiDomainHost)]
         protected override void OnStartup(StartupEventArgs e)
         {
             try

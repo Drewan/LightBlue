@@ -38,6 +38,10 @@
       <HintPath>..\packages\Formo.1.4.4.40853\lib\net40\Formo.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,16 +63,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="log4net.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LightBlue.Host.Stub\LightBlue.Host.Stub.csproj">
-      <Project>{0FB3527D-FBCC-468F-91ED-C84E89260791}</Project>
-      <Name>LightBlue.Host.Stub</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LightBlue.Host\LightBlue.Host.csproj">
       <Project>{d6110338-d945-4e32-8a72-840c44eda2b9}</Project>
       <Name>LightBlue.Host</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightBlue\LightBlue.csproj">
+      <Project>{28F5B274-4B25-4295-98AE-3E5A60C34D8D}</Project>
+      <Name>LightBlue</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

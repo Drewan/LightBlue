@@ -38,6 +38,10 @@
       <HintPath>..\packages\Formo.1.4.4.40853\lib\net40\Formo.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="IISExpressBootstrapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\IISExpressBootstrapper.1.2.0\lib\net45\IISExpressBootstrapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebConfiguration.cs" />
     <Compile Include="WebHostService.cs" />
     <Compile Include="WebHostSettings.cs" />
   </ItemGroup>
@@ -69,6 +74,10 @@
     <ProjectReference Include="..\LightBlue.WebHost\LightBlue.WebHost.csproj">
       <Project>{871c2b31-fb84-499f-a1b7-901ddabda8d4}</Project>
       <Name>LightBlue.WebHost</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightBlue\LightBlue.csproj">
+      <Project>{28F5B274-4B25-4295-98AE-3E5A60C34D8D}</Project>
+      <Name>LightBlue</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

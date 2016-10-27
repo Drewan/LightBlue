@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-
+using System.Linq;
+using System.Xml.Linq;
 using LightBlue.Infrastructure;
 
 using NDesk.Options;
@@ -147,6 +148,33 @@ namespace LightBlue.Host
             Console.WriteLine();
             Console.WriteLine("Options:");
             p.WriteOptionDescriptions(Console.Out);
+        }
+
+        public void ScrubAzureTraceListener(string cscfg)
+        {
+            var xml = XDocument.Load(cscfg);
+            if (xml.Root == null)
+                return;
+            
+            var diagnostics = xml.Root.Element("system.diagnostics");
+            if (diagnostics == null)
+                return;
+
+            var listener = diagnostics
+                .Descendants("listeners")
+                .FirstOrDefault(l => l.Parent != null && l.Parent.Name == "trace");
+            if (listener == null)
+                return;
+
+            var azureListener = listener.Descendants("add")
+                .Where(a => a.Attribute("type").Value.StartsWith("Microsoft.WindowsAzure"))
+                .ToArray();
+            foreach (var element in azureListener)
+            {
+                element.Remove();
+            }
+
+            xml.Save(cscfg);
         }
     }
 }
