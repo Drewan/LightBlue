@@ -6,13 +6,18 @@ namespace LightBlue.Database
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string VmSize { get; set; }
         public string ServiceDefinition { get; set; }
         public string ServiceConfiguration { get; set; }
-        public List<CloudRole> Roles { get; set; }
+
+        public List<WebRole> WebRoles { get; set; }
+        public List<WorkerRole> WorkerRoles { get; set; }
+
 
         public CloudService()
         {
-            Roles = new List<CloudRole>();
+            WebRoles = new List<WebRole>();
+            WorkerRoles = new List<WorkerRole>();
         }
     }
 }

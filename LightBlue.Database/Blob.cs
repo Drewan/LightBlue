@@ -2,7 +2,7 @@
 
 namespace LightBlue.Database
 {
-    public class CloudBlob
+    public class Blob
     {
         public Guid Id { get; set; }
         public string Content { get; set; }

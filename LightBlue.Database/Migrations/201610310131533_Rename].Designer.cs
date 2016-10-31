@@ -7,13 +7,13 @@ namespace LightBlue.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class RenameBlobs : IMigrationMetadata
+    public sealed partial class Rename : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameBlobs));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Rename));
         
         string IMigrationMetadata.Id
         {
-            get { return "201610271048182_RenameBlobs"; }
+            get { return "201610310131533_Rename]"; }
         }
         
         string IMigrationMetadata.Source

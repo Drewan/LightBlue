@@ -8,6 +8,6 @@
 
         public int CloudRoleId { get; set; }
 
-        public virtual CloudRole CloudRole { get; set; }
+        public virtual WebRole WebRole { get; set; }
     }
 }

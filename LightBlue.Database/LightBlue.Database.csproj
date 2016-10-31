@@ -51,46 +51,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binding.cs" />
     <Compile Include="BlobDirectory.cs" />
+    <Compile Include="InputEndpoint.cs" />
     <Compile Include="LightBlueContext.cs" />
-    <Compile Include="CloudBlob.cs" />
-    <Compile Include="CloudBlobContainer.cs" />
-    <Compile Include="CloudQueue.cs" />
-    <Compile Include="CloudQueueMessage.cs" />
-    <Compile Include="CloudRole.cs" />
+    <Compile Include="Blob.cs" />
+    <Compile Include="BlobContainer.cs" />
+    <Compile Include="Migrations\201610310131533_Rename].cs" />
+    <Compile Include="Migrations\201610310131533_Rename].Designer.cs">
+      <DependentUpon>201610310131533_Rename].cs</DependentUpon>
+    </Compile>
+    <Compile Include="Queue.cs" />
+    <Compile Include="QueueMessage.cs" />
+    <Compile Include="Migrations\201610280309138_Initial.cs" />
+    <Compile Include="Migrations\201610280309138_Initial.Designer.cs">
+      <DependentUpon>201610280309138_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs" />
+    <Compile Include="WebRole.cs" />
     <Compile Include="CloudService.cs" />
     <Compile Include="ConfigurationSetting.cs" />
     <Compile Include="LightBlueEntityModel.cs" />
-    <Compile Include="LocalResouce.cs" />
-    <Compile Include="Migrations\201610271046189_Initial.cs" />
-    <Compile Include="Migrations\201610271046189_Initial.Designer.cs">
-      <DependentUpon>201610271046189_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610271048182_RenameBlobs.cs" />
-    <Compile Include="Migrations\201610271048182_RenameBlobs.Designer.cs">
-      <DependentUpon>201610271048182_RenameBlobs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201610271058101_RenameBlobs1.cs" />
-    <Compile Include="Migrations\201610271058101_RenameBlobs1.Designer.cs">
-      <DependentUpon>201610271058101_RenameBlobs1.cs</DependentUpon>
-    </Compile>
+    <Compile Include="LocalResource.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleLog.cs" />
+    <Compile Include="Site.cs" />
+    <Compile Include="WorkerRole.cs" />
+    <Compile Include="XmlParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610271046189_Initial.resx">
-      <DependentUpon>201610271046189_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610280309138_Initial.resx">
+      <DependentUpon>201610280309138_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610271048182_RenameBlobs.resx">
-      <DependentUpon>201610271048182_RenameBlobs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201610271058101_RenameBlobs1.resx">
-      <DependentUpon>201610271058101_RenameBlobs1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610310131533_Rename].resx">
+      <DependentUpon>201610310131533_Rename].cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

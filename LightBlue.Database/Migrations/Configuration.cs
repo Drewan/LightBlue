@@ -5,15 +5,16 @@ namespace LightBlue.Database.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<LightBlue.Database.LightBlueContext>
+    public sealed class LightBlueDbConfiguration : DbMigrationsConfiguration<LightBlueContext>
     {
-        public Configuration()
+        public LightBlueDbConfiguration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
             ContextKey = "LightBlue.Database.LightBlueContext";
         }
 
-        protected override void Seed(LightBlue.Database.LightBlueContext context)
+        protected override void Seed(LightBlueContext context)
         {
             //  This method will be called after migrating to the latest version.
 
